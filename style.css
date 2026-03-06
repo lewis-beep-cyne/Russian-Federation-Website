@@ -1,13 +1,14 @@
 body {
   font-family: Arial, sans-serif;
   background: whitesmoke;
-  color: grey;
+  color: rgb(75, 22, 124);
   padding: 20px;
   line-height: 1.6;
+  margin: 0;
 }
 
 h1, h2, h3 {
-  color: blue;
+  color: lightseagreen;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -17,20 +18,47 @@ p {
   text-align: justify;
 }
 
-img {
-  display: block;
+.image-container {
+  position: relative;
+  display: inline-block;
   margin: 20px auto;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
+}
+
+.image-container img {
+  display: block;
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 2px 6px black;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-img:hover {
-  transform: scale(1.1);
+.image-container img:hover {
+  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 220px;
+  background-color: black;
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 ul, ol {
@@ -46,13 +74,14 @@ a {
   margin-top: 20px;
   text-decoration: none;
   color: white;
-  background: #0077cc;
+  background: black;
   padding: 10px 15px;
   border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 a:hover {
-  background: lightseagreen;
+  background: blue;
 }
 
 div {
@@ -100,76 +129,33 @@ details[open] {
   background: #e6f2ff;
 }
 
-details {
-  margin: 15px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #f9f9f9;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: bold;
-  color: #0077cc;
-}
-
-details[open] {
-  background: #e6f2ff;
-}
-
-.contact-form {
-  max-width: 400px;
+table {
+  width: 100%;
+  border-collapse: collapse;
   margin: 20px auto;
-  padding: 15px;
-  background: #f9f9f9;
-  border-radius: 8px;
+  background: white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-.contact-form button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
+th {
   background: lightseagreen;
+  color: white;
+  text-align: center;
 }
 
-
-
-.slideshow img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  opacity: 0;
-  animation: fade 12s infinite;
+tr:nth-child(even) {
+  background: #f9f9f9;
 }
 
-.slideshow img:nth-child(1) { animation-delay: 0s; }
-.slideshow img:nth-child(2) { animation-delay: 4s; }
-.slideshow img:nth-child(3) { animation-delay: 8s; }
-
-@keyframes fade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  30% { opacity: 1; }
-  40% { opacity: 0; }
-  100% { opacity: 0; }
+tr:hover {
+  background: #e6f2ff;
+  transition: background 0.3s ease;
 }
